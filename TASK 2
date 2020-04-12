@@ -1,0 +1,12 @@
+## TO CREATE AN USER AND ALLOWING THE USER TO RUN THE DATE COMMAND ONLY
+# THE SOLUTION IS
+date
+which date
+chmod a-x /usr/bin/date
+ls -l /usr/bin/date
+useradd -s /usr/bin/date ray
+setfacl -m u:ray:rwx /usr/bin/date
+su - ray
+setfacl -m u:root:--- /usr/bin/date
+chmod -x /usr/bin/date
+date
