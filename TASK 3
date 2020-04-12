@@ -1,0 +1,7 @@
+## TO COPY FILES FROM ONE USER TO ANOTHER USER
+# CREATE TWO USERS
+#CREATE TWO FILES UNDER THE TWO USERS RESPECTIVELY
+THEN FROM THE ROOT USER TYPE THE COMMAND
+# vim /etc/sudoers
+# sudo cp -r /home/user1/file1/home/user2
+# sudo cp -r /home/user2/file2/home/user1
