@@ -1,0 +1,30 @@
+## TASK 1 FOR CREATING MULTIPLE DIRECTORIES
+#THE SOLUTION IS:
+mkdir -p a/{b/{d/{i/m/z,j/l/z},e/h/l/z},c/{f/h/l/z,g/k/l/z}} 
+
+##TASK 2 FOR CREATING AN USER AND ALLOWING THE USER TO RUN ONLY THE DATE COMMAND
+# THE DATE COMMAND IS:
+date
+which date
+chmod a-x /usr/bin/date
+ls -l /usr/bin/date
+useradd -s /usr/bin/date ray
+setfacl -m u:ray:rwx /usr/bin/date
+su - ray
+setfacl -m u:root:--- /usr/bin/date
+chmod -x /usr/bin/date
+date
+
+## TASK 3 TO CREATE TWO USERS AND CREATE A FOLDER AND FILE UNDER THAT AND COPY THE FOLDER AND FILE RESPECTIVELY FROM ONE USER TO THE OTHER
+# THE SOLUTION IS:
+useradd jerry 
+mkdir s
+exit
+useradd henry
+mkdir p
+exit
+vim /etc/sudoers
+sudo cp -r /home/jerry/s /home/henry
+sudo cp -r /home/henry/p /home/jerry
+
+
