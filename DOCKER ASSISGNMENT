@@ -1,0 +1,28 @@
+TASK 1
+WRITE A PYTHON SCRIPT TO LAUNCH 100 CONTAINERS THAT KEEPS RUNNING EVEN AFTER REBOOT
+THE SOLUTION IS:
+import os
+for num in range(1,101):
+if num<=25:
+os.system("sudo docker run-itd --restart unless-stopped --name adocnw{} alpine".format(num))
+elif num<=50:
+os.system("sudo docker run-itd --restart unless-stopped --name adhocnw{} fedora".format(num))
+elif num<=75:
+os.system("sudo docker run-itd --restart unless-stopped --name adhocnw{} centos".format(num))
+elif num<=100:
+os.system("sudo docker run-itd --restart unless-stopped --name adhocnw{} java".format(num))
+os.system("sudo docker ps")
+
+TASK 2
+WRITE A COMBINATION OF DOCKER AND OS COMMANDS TO GET LIST OF NAME CREATED OF ALL CONTAINERS AND STORE THEM IN A LIST
+THE SOLUTION IS:
+docker ps --format " {{.Names}}\t{{.Created At }}" > file.txt
+
+TASK 3
+RUN A CONTAINER FROM LOCAL SYSTEM USING CUSTOM BUILD DOCKER IMAGE WITH PARENT PROCESS AS FIREFOX
+I do not have docker installed locally in my system.
+
+TASK 4
+GET RAM AND CPU CONSUMPTION FROM 100 CONTAINERS AND STORE IN TEXT FILE
+THE SOLUTION IS:
+docker stats --all --no stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}"> file.txt
